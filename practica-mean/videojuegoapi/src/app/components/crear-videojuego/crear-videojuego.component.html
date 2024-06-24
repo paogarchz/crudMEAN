@@ -1,0 +1,57 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">{{ titulo | uppercase}}</span>
+          <form class="mt-3" [formGroup]="videojuegoForm" (ngSubmit)="agregarVideojuego()">
+              <div class="mb-3">
+              <input type="text" formControlName="nombre"
+              class="form-control form-control-lg" placeholder="Nombre">
+              <div class="text-danger"
+              *ngIf="videojuegoForm.get('nombre')?.hasError('required') && videojuegoForm.get('nombre')?.touched">
+                <span>El nombre <strong> es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="precio"
+              class="form-control form-control-lg" placeholder="Precio">
+              <div class="text-danger"
+              *ngIf="videojuegoForm.get('precio')?.hasError('required') && videojuegoForm.get('precio')?.touched">
+                <span>El precio <strong> es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="iva"
+              class="form-control form-control-lg" placeholder="iva">
+              <div class="text-danger"
+              *ngIf="videojuegoForm.get('iva')?.hasError('required') && videojuegoForm.get('iva')?.touched">
+                <span>El iva <strong> es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="codigo"
+               class="form-control form-control-lg" placeholder="Codigo">
+               <div class="text-danger"
+              *ngIf="videojuegoForm.get('codigo')?.hasError('required') && videojuegoForm.get('codigo')?.touched">
+                <span>El codigo <strong> es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="text" formControlName="stock"
+              class="form-control form-control-lg" placeholder="stock">
+              <div class="text-danger"
+              *ngIf="videojuegoForm.get('stock')?.hasError('required') && videojuegoForm.get('stock')?.touched">
+                <span>El stock <strong> es obligatorio</strong></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <button routerLink="/" class="btn btn-secondary btn-lg float-start">Volver</button>
+              <button typ="submit" [disabled]= "videojuegoForm.invalid" class="btn btn-success btn-lg float-end">Aceptar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

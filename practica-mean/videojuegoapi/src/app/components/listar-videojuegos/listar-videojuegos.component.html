@@ -1,0 +1,39 @@
+ㅤ
+<div class="container mt5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class='card'>
+        <div class="card-body text-center">
+          <span class="titulo">LISTADO DE VIDEOJUEGOS</span>
+          <button class="btn btn-success float-end" routerLink="/crear-videojuego">Nuevo</button>
+          <table *ngIf="listVideojuegos.length > 0" class="table table-striped mt-4">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">iva</th>
+                <th scope="col">codigo</th>
+                <th scope="col">stock</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let videojuego of listVideojuegos">
+                <td>{{ videojuego.nombre }}</td>
+                <td>{{ videojuego.precio }}</td>
+                <td>{{ videojuego.iva }}</td>
+                <td>{{ videojuego.codigo }}</td>
+                <td>{{ videojuego.stock }}</td>
+                <td>
+                  <i (click)="eliminarVideojuegos(videojuego._id)" class="fas fa-trash"></i>
+                  <i [routerLink]= "['/editar-videojuego',videojuego._id ]" class="fas fa-edit"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 style="text-align: center;" *ngIf="listVideojuegos.length == 0">No hay videojuegos para mostrar</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
